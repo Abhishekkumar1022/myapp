@@ -1,17 +1,20 @@
-import React from 'react';
+import React,{Component} from 'react';
+import '../css/styles.css';
 
-const user = {
-    firstName:'Fracis',
-    lastName : 'Jones',
-    age:'16'
-}
 
-const Header = ()=>{
-    return (
-    <div>
-       Header
-    </div>
-    )
+
+class Header extends Component {
+    inputChangeHandler(event){
+        console.log(event.target.value)
+    }
+    render(){
+        return (
+            <header>
+                <div className = "logo">Logo</div>
+                <input onChange = {(e)=>this.inputChangeHandler(e)} type = "text"></input>
+            </header>
+        )
+    }
 }
 
 export default Header;
