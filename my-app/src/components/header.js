@@ -4,14 +4,20 @@ import '../css/styles.css';
 
 
 class Header extends Component {
-    inputChangeHandler(event){
-        console.log(event.target.value)
+
+    state={
+        keywords:''
+    }
+    inputChangeHandler = (event)=> {
+        this.setState({
+            keywords:event.target.value
+        })
     }
     render(){
         return (
             <header>
                 <div className = "logo">Logo</div>
-                <input onChange = {(e)=>this.inputChangeHandler(e)} type = "text"></input>
+                <input onChange = {this.inputChangeHandler} type = "text"></input>
             </header>
         )
     }
