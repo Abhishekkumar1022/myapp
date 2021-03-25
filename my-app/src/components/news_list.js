@@ -7,7 +7,10 @@ const NewsList = (props) =>{
         )
     })
     return(
-        <div>{items}</div>
+        <div>
+            {props.children}
+            {items}
+        </div>
     )
 }
 
