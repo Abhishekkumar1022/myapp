@@ -5,18 +5,34 @@ import JSON from './db.json';
 //Components
 import Header from './components/header';
 import NewsList from './components/news_list';
+
 class App extends Component{
   state = {
-    news:JSON
+    news:JSON,
+    filtered:[]
+  }
+  getKeyword = (event)=>{
+    //console.log(event.target.value)
+    let keyword = event.target.value;
+    let filtered = this.state.news.filter((item)=>{
+      return item.title.indexOf(keyword) > -1
+    });
+
+    this.setState({
+      filtered
+    })
+    //console.log(filtered)
   }
   render(){
+    let newsFiltered = this.state.filtered;
+    let newsWhole    = this.state.news;
     return (
       <div>
-        <Header/>
+        <Header keywords = {this.getKeyword}/>
         <h3>
           The News item are:
         </h3>
-        <NewsList news = {this.state.news}/>
+        <NewsList news = {newsFiltered == 0 ? newsWhole : newsFiltered}/>
       </div>
     )
   }
