@@ -1,1 +1,1 @@
-A News Application in React
+A Simple News Application in React
